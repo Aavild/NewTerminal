@@ -1,4 +1,4 @@
-# NewTerminal
+﻿# NewTerminal
 
 Allows customising every single displayText on the terminal
 
@@ -51,10 +51,10 @@ if you have other useful tips for other players feel free to create a Github iss
 
 ## Dev
 
-Note that lib is left empty on purpose as the game DLLs are considered intellectual property. 
+Note that lib is left empty on purpose as the game DLLs are considered intellectual property.
 
 Please find the needed DLLs on your own in your LethalCompany folder at `\Lethal Company\Lethal Company_Data\Managed` and insert them in the lib folder.
 
-Then either run `dotnet build` -> dll produced in Release folder 
+Then either run `dotnet build` -> dll produced in Release folder
 
 or `dotnet build -p:BuildInPlugin=true` -> dll produced in Lethal Company folder.

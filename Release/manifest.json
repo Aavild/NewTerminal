@@ -1,0 +1,9 @@
+﻿{
+  "name": "NewTerminal",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/Aavild/NewTerminal",
+  "description": "New Terminal for Lethal Company",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100"
+  ]
+}
