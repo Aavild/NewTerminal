@@ -1,9 +1,6 @@
 ﻿using BepInEx;
-using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using NewTerminal.Config;
-using UnityEngine;
 
 namespace NewTerminal
 {
@@ -15,17 +12,15 @@ namespace NewTerminal
         internal static ManualLogSource Log;
         private void Awake()
         {
+            // Plugin startup logic
             Log = Logger;
             Instance = this;
-            // Plugin startup logic
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
             
-            Logger.LogInfo("This is information");
-            Logger.LogWarning("This is a warning");
-            Logger.LogError("This is an error");
-
-            ConfigManager config = new ConfigManager();
-            config.LoadConfig();
+            var harmony = new Harmony("newterminal.patch");
+            harmony.PatchAll();
+            
+            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Logger.LogInfo("Config will fully load once entering a lobby");
         }
     }
 }

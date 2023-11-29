@@ -12,6 +12,8 @@
           "BepInEx.Analyzers": "1.0.8",
           "BepInEx.Core": "5.4.21",
           "BepInEx.PluginInfoProps": "1.1.0",
+          "Unity.InputSystem": "1.5.0",
+          "UnityEngine": "5.6.1",
           "UnityEngine.Modules": "2022.3.9"
         },
         "runtime": {
@@ -351,6 +353,22 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "Unity.InputSystem/1.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/Unity.InputSystem.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          }
+        }
+      },
+      "UnityEngine/5.6.1": {
+        "runtime": {
+          "lib/netstandard2.0/UnityEngine.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "UnityEngine.Modules/2022.3.9": {}
     }
   },
@@ -618,6 +636,20 @@
       "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
+    "Unity.InputSystem/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wT/v12I32X+TlhPprHxQaw+LOkVkOPtdfVSJTurTtfN7V+d0cRaii2Nt5+oY8UhkKtHTExzMZB4dISjZQW70lA==",
+      "path": "unity.inputsystem/1.5.0",
+      "hashPath": "unity.inputsystem.1.5.0.nupkg.sha512"
+    },
+    "UnityEngine/5.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uAhM+pBtZH7CvGCBQyT9CaksT9M4fzTCIMetYjOEocuFiQGF38uGgS8q5xUd1HddaeXwDG9VrMARHGz5IXhQLw==",
+      "path": "unityengine/5.6.1",
+      "hashPath": "unityengine.5.6.1.nupkg.sha512"
     },
     "UnityEngine.Modules/2022.3.9": {
       "type": "package",
