@@ -41,7 +41,7 @@ Help = >MOONS - List of moons\n>STORE - The company store\'s selection of items.
 
 `[totalCost]` is an example where the game replaces a part of the text with a value.
 
-`\n\n` at the end of the text is to place the cursor at a new line. These are nice to have but not required.
+The `\n\n` at the end of the text is to place the cursor at a new line. These are nice to have but not required.
 
 Some letters need to be escaped by putting a `\ ` before them such as `\'`.
 
@@ -51,10 +51,10 @@ if you have other useful tips for other players feel free to create a Github iss
 
 ## Dev
 
-Note that lib is left empty on purpose as the game DLLs are considered intellectual property. 
+Note that lib is left empty on purpose as the game DLLs are considered intellectual property.
 
 Please find the needed DLLs on your own in your LethalCompany folder at `\Lethal Company\Lethal Company_Data\Managed` and insert them in the lib folder.
 
-Then either run `dotnet build` -> dll produced in Release folder 
+Then either run `dotnet build` -> dll produced in Release folder.
 
 or `dotnet build -p:BuildInPlugin=true` -> dll produced in Lethal Company folder.

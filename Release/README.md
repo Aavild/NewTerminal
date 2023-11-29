@@ -1,9 +1,8 @@
-﻿# NewTerminal
+# NewTerminal
 
 Allows customising every single displayText on the terminal
 
 warning: contains spoilers for creatures and log-messages
-![img.png](img.png)
 
 ## Usage
 
@@ -41,7 +40,7 @@ Help = >MOONS - List of moons\n>STORE - The company store\'s selection of items.
 
 `[totalCost]` is an example where the game replaces a part of the text with a value.
 
-`\n\n` at the end of the text is to place the cursor at a new line. These are nice to have but not required.
+The `\n\n` at the end of the text is to place the cursor at a new line. These are nice to have but not required.
 
 Some letters need to be escaped by putting a `\ ` before them such as `\'`.
 
