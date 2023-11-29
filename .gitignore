@@ -1,0 +1,7 @@
+﻿/lib/
+/.idea/
+/bin/Debug/netstandard2.1/NewTerminal.deps.json
+/bin/Debug/netstandard2.1/NewTerminal.pdb
+/obj/
+/bin/Debug/NewTerminal.pdb
+/bin/Debug/NewTerminal.deps.json

@@ -1,12 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+  <PropertyGroup >
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Description>New Terminal for Lethal Company</Description>
     <Version>1.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <PackageId>NewTerminal</PackageId>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>Release</OutputPath>
+    <DebugType>None</DebugType>
+    <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(BuildInPlugin)'=='true'">
+    <OutputPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
