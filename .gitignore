@@ -5,3 +5,4 @@
 /obj/
 /bin/Debug/NewTerminal.pdb
 /bin/Debug/NewTerminal.deps.json
+/Release/BepInEx/plugins/NewTerminal.deps.json

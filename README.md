@@ -9,7 +9,7 @@ warning: contains spoilers for creatures and log-messages
 
 Download and follow the guide for [BepInEx 5.4.22](https://github.com/BepInEx/BepInEx).
 
-Download [Release\NewTerminal.dll](https://github.com/Aavild/NewTerminal/tree/master/Release) and put it into `\Lethal Company\BepInEx\plugins`.
+Download [Release/BepInEx/plugins/NewTerminal.dll](https://github.com/Aavild/NewTerminal/tree/master/Release/BepInEx/plugins) and put it into `\Lethal Company\BepInEx\plugins`.
 
 Run LethalCompany and enter the spaceship once to generate the config files.
 
@@ -46,6 +46,10 @@ The `\n\n` at the end of the text is to place the cursor at a new line. These ar
 Some letters need to be escaped by putting a `\ ` before them such as `\'`.
 
 if a value stops working just delete the entire entry. The plugin will automatically add it back the next time you enter a ship.
+
+Each line is exactly 51 letters long.
+
+In Notepad++ you can collapse categories to make navigation easier.
 
 if you have other useful tips for other players feel free to create a Github issue on it.
 

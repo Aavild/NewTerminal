@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputPath>Release</OutputPath>
+    <OutputPath>Release/BepInEx/plugins</OutputPath>
     <DebugType>None</DebugType>
   </PropertyGroup>
   
@@ -38,10 +38,5 @@
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Include="Release\img.png" />
-    <None Include="Release\icon.png" />
   </ItemGroup>
 </Project>
