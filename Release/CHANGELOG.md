@@ -1,4 +1,13 @@
-﻿## v1.1.0
+﻿## v1.1.1
+
+* Restructured project with following new structure:
+  * src - code project
+  * wiki - WIP guide on how to use the plugin beyond the README.md
+  * .github/workflows - workflow for automatically creating releases on Github and ThunderStore
+  * A single README.md
+  * Stopped producing NewTerminal.deps.json
+
+## v1.1.0
 
 * Fixed some keywords being combined into a single keyword. (`NewTerminal.cfg`'s `[NewTerminal.Nouns]` specifically)
   * Example: `Buy ProFlashlight` and `Info ProFlashlight` or `Route 56-Vow` and Info `56-Vow`

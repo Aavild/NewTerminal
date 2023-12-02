@@ -1,0 +1,54 @@
+name: Create Release
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get version
+        id: package_version
+        uses: KageKirin/get-csproj-version@v0
+        with:
+          file: src/NewTerminal.csproj
+
+      - name: Push to ThunderStore
+        id: thunder_store
+        uses: GreenTF/upload-thunderstore-package@v4
+        with:
+          namespace: Aavild
+          name: NewTerminal
+          version: v${{ steps.package_version.version }}
+          description: "New Terminal for Lethal Company"
+          categories: |
+            bepinex
+            mods
+            misc
+          deps: "BepInEx-BepInExPack-5.4.2100"
+          community: lethal-company
+          wrap: BepInEx/plugins
+          token: ${{ secrets.PUBLISH_TOKEN }}
+          path: Release/
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ steps.package_version.version }}
+          artifacts: output/build/*.zip
+          bodyFile: "Release/CHANGELOG.md"
+          allowUpdates: true
+
+      - name: Create tag
+        run: |
+          git tag -m "CI: create new tag" v${{ steps.package_version.version }}
+          git push https://${{ github.token }}@github.com/OWNER/REPO
