@@ -1,13 +1,13 @@
 name: Create Release
 
 on:
-  push: 
+  push:
     branches:
       - master
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
-  build:
+  build_and_release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,7 +28,7 @@ jobs:
         with:
           namespace: Aavild
           name: NewTerminal
-          version: v${{ build.steps.package_version.version }}
+          version: v${{ steps.package_version.outputs.version }}
           description: "New Terminal for Lethal Company"
           categories: |
             bepinex
@@ -43,7 +43,7 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          tag: v${{ build.steps.package_version.version }}
+          tag: v${{ steps.package_version.outputs.version }}
           artifacts: output/build/*.zip
           bodyFile: "Release/CHANGELOG.md"
           allowUpdates: true
