@@ -3,17 +3,17 @@
 Allows customising every single displayText on the terminal
 
 warning: contains spoilers for creatures and log-messages
-![img.png](img.png)
+![img.png](https://github.com/Aavild/NewTerminal/blob/master/wiki/example.png)
 
 ## Usage
 
 Download and follow the guide for [BepInEx 5.4.22](https://github.com/BepInEx/BepInEx).
 
-Download [Release/BepInEx/plugins/NewTerminal.dll](https://github.com/Aavild/NewTerminal/tree/master/Release/BepInEx/plugins) and put it into `\Lethal Company\BepInEx\plugins`.
+Download [Release/BepInEx/plugins/NewTerminal.dll](https://github.com/Aavild/NewTerminal/tree/master/Release/BepInEx/plugins) and put it into `/Lethal Company/BepInEx/plugins`.
 
 Run LethalCompany and enter the spaceship once to generate the config files.
 
-Modify the config file in `\Lethal Company\BepInEx\config`.
+Modify the config file in `/Lethal Company/BepInEx/config`.
 
 Example of an entry in a category:
 
@@ -55,10 +55,13 @@ if you have other useful tips for other players feel free to create a Github iss
 
 ## Dev
 
-Note that lib is left empty on purpose as the game DLLs are considered intellectual property.
+Note that src/lib doesn't exist on purpose as the game DLLs are considered intellectual property.
 
-Please find the needed DLLs on your own in your LethalCompany folder at `\Lethal Company\Lethal Company_Data\Managed` and insert them in the lib folder.
+Please find the needed DLLs on your own in your LethalCompany folder at `\Lethal Company\Lethal Company_Data\Managed` and insert them in a new src/lib folder.
 
-Then either run `dotnet build` -> dll produced in Release folder.
+Then either run `dotnet build -o ../Release && rm ../Release/NewTerminal.deps.json` -> dll produced in Release folder.
 
-or `dotnet build -p:BuildInPlugin=true` -> dll produced in Lethal Company folder.
+or `dotnet build -o "..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins" 
+&& rm "..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins"` -> dll produced in Lethal Company folder.
+
+src/.run are Rider run profiles
