@@ -28,7 +28,7 @@ jobs:
         with:
           namespace: Aavild
           name: NewTerminal
-          version: v${{ steps.package_version.version }}
+          version: v${{ build.steps.package_version.version }}
           description: "New Terminal for Lethal Company"
           categories: |
             bepinex
@@ -43,12 +43,7 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          tag: v${{ steps.package_version.version }}
+          tag: v${{ build.steps.package_version.version }}
           artifacts: output/build/*.zip
           bodyFile: "Release/CHANGELOG.md"
           allowUpdates: true
-
-      - name: Create tag
-        run: |
-          git tag -m "CI: create new tag" v${{ steps.package_version.version }}
-          git push https://${{ github.token }}@github.com/OWNER/REPO
