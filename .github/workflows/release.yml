@@ -34,7 +34,6 @@ jobs:
           deps: "BepInEx-BepInExPack-5.4.2100"
           community: lethal-company
           wrap: BepInEx/plugins
-          dev: true
           token: ${{ secrets.PUBLISH_TOKEN }}
           path: Release/
 
