@@ -1,17 +1,16 @@
 name: Create Release
 
 on:
-  push: 
+  push:
     branches:
       - main
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
-  build:
+  build_and_release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,27 +22,12 @@ jobs:
           file: src/NewTerminal.csproj
 
       - name: Push to ThunderStore
-        id: thunder_store
-        uses: GreenTF/upload-thunderstore-package@v4
-        with:
-          namespace: Aavild
-          name: NewTerminal
-          version: v${{ build.steps.package_version.version }}
-          description: "New Terminal for Lethal Company"
-          categories: |
-            bepinex
-            mods
-            misc
-          deps: "BepInEx-BepInExPack-5.4.2100"
-          community: lethal-company
-          wrap: BepInEx/plugins
-          token: ${{ secrets.PUBLISH_TOKEN }}
-          path: Release/
+        run: ./.github/tcli publish --token ${{ secrets.PUBLISH_TOKEN }} --package-version ${{ steps.package_version.outputs.version }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          tag: v${{ build.steps.package_version.version }}
-          artifacts: output/build/*.zip
-          bodyFile: "Release/CHANGELOG.md"
+          tag: v${{ steps.package_version.outputs.version }}
+          artifacts: /build/*.zip
+          bodyFile: "CHANGELOG.md"
           allowUpdates: true
