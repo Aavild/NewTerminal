@@ -16,7 +16,7 @@ Run LethalCompany and enter the spaceship once to generate the config files.
 
 Modify the config file in `/Lethal Company/BepInEx/config`.
 
-Example of an entry in a category:
+### Modify text-display for a command
 
 ```
 [TerminalMenus.Other] # <--- this is a category
@@ -33,6 +33,36 @@ can be modified into the following:
 # Default value: >MOONS\nTo see the list of moons the autopilot can route to.\n\n>STORE\nTo see the company store\'s selection of useful items.\n\n>BESTIARY\nTo see the list of wildlife on record.\n\n>STORAGE\nTo access objects placed into storage.\n\n>OTHER\nTo see the list of other commands\n\n[numberOfItemsOnRoute]\n
 Help = >MOONS - List of moons\n>STORE - The company store\'s selection of items.\n>BESTIARY - List of wildlife on record.\n>STORAGE - Access objects in storage.\n>VIEW MONITOR - Toggle the main monitor\'s map cam.\n>SWITCH [Player name] - To switch player on the main monitor\n>PING [Radar booster name] - Make a radar booster play a noise.\n>SCAN - Scan for the number of items left on the current planet.\n\n
 ```
+Note that `TerminalMenus.Special` is the terminal display when opening the terminal. If you want to modify the output of typing the `help` command you need to find it in `NewTerminal-Other`
+
+### Rename command
+It is also possible to rename commands. Example if you want to rename the buy command for pro flashlights `buy pro` -> `c lu` (spaces aren't used):
+```
+[TerminalMenus.Buy-cmd]
+
+# Setting type: String
+# Default value: buy
+Buy-cmd = buy
+
+# Setting type: String
+# Default value: pro flashlight
+ProFlashlight-cmd = pro flashlight
+```
+to:
+```
+[TerminalMenus.Buy-cmd]
+
+# Setting type: String
+# Default value: buy
+Buy-cmd = c # <--- minimal 1 letter
+
+# Setting type: String
+# Default value: pro flashlight
+ProFlashlight-cmd = lu <---- minimal 2 letters
+```
+Note that nouns are put in the category for their primary verb although renaming the command will also rename for other verbs.
+
+With the example before this will also be renamed: `info pro` -> `info lu`
 
 ## Tips
 
@@ -64,9 +94,6 @@ Note that src/lib doesn't exist on purpose as the game DLLs are considered intel
 
 Please find the needed DLLs on your own in your LethalCompany folder at `\Lethal Company\Lethal Company_Data\Managed` and insert them in a new src/lib folder.
 
-Then either run `dotnet build -o ../Release && rm ../Release/NewTerminal.deps.json` -> dll produced in Release folder.
+In any IDE you should be able to build towards either Debug or Release which should target the appropriate folders specified in src/NewTerminal.csproj
 
-or `dotnet build -o "..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins" 
-&& rm "..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins"` -> dll produced in Lethal Company folder.
-
-src/.run are Rider run profiles
+Created under the Creative Commons License allowing anyone to copy the code and redistribute it without having to include the license.
