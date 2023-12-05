@@ -1,4 +1,7 @@
-﻿## v1.2.0
+﻿## v1.3.0
+* SomeCommand-cmd for all commands which allows renaming commands
+
+## v1.2.0
 
 * Made so that NewTerminals can't crash the Terminal (I think)
 * Set the upper limit to 4794 characters

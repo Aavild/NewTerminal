@@ -28,6 +28,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: v${{ steps.package_version.outputs.version }}
-          artifacts: /build/*.zip
+          artifacts: /home/runner/work/NewTerminal/NewTerminal/build/*.zip
           bodyFile: "CHANGELOG.md"
           allowUpdates: true
