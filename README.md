@@ -3,7 +3,8 @@
 Allows customising every single displayText on the terminal
 
 warning: contains spoilers for creatures and log-messages
-![img.png](https://github.com/Aavild/NewTerminal/blob/master/wiki/example.png)
+
+![img.png](https://github.com/Aavild/NewTerminal/blob/master/wiki/example.png?raw=true)
 
 ## Usage
 

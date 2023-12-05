@@ -8,12 +8,21 @@
     <LangVersion>latest</LangVersion>
     <PackageId>NewTerminal</PackageId>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Authors>Aavild</Authors>
   </PropertyGroup>
 
   <PropertyGroup>
     <OutputPath>../Release</OutputPath>
     <DebugType>None</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\plugins</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,4 +44,8 @@
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
+
+  <Target Name="RemoveDepsJson" AfterTargets="Build">
+    <Delete Files="$(OutputPath)\NewTerminal.deps.json" />
+  </Target>
 </Project>
