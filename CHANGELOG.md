@@ -1,5 +1,6 @@
 ﻿## v1.3.0
 * SomeCommand-cmd for all commands which allows renaming commands
+* Added Creative Commons which permits anyone to copy everything in the mod and redistribute without including the license
 
 ## v1.2.0
 

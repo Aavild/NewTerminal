@@ -94,4 +94,6 @@ Note that src/lib doesn't exist on purpose as the game DLLs are considered intel
 
 Please find the needed DLLs on your own in your LethalCompany folder at `\Lethal Company\Lethal Company_Data\Managed` and insert them in a new src/lib folder.
 
-In any IDE you should be able to build towards either Debug or Release which should target the appropiate folders specified in src/NewTerminal.csproj
+In any IDE you should be able to build towards either Debug or Release which should target the appropriate folders specified in src/NewTerminal.csproj
+
+Created under the Creative Commons License allowing anyone to copy the code and redistribute it without having to include the license.
