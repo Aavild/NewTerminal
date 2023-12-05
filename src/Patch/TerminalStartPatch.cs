@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Linq;
 using BepInEx.Configuration;
 using HarmonyLib;
-using UnityEngine;
 
 namespace NewTerminal.Patch;
 /// <summary>
@@ -10,7 +10,7 @@ namespace NewTerminal.Patch;
 [HarmonyPatch(typeof(Terminal), "Start")]
 public class TerminalStartPatch
 {
-    static bool Prefix(Terminal __instance)
+    static void Postfix(Terminal __instance)
     {
         var specialConfigFile = CreateNewConfig("NewTerminal-Special");
         var verbsConfigFile = CreateNewConfig("NewTerminal-Verbs");
@@ -45,7 +45,6 @@ public class TerminalStartPatch
         
         // __instance.terminalNodes.terminalNodes is empty
 
-        return true;
     }
 
     
@@ -74,9 +73,11 @@ public class TerminalStartPatch
                 name,
                 displayText, 
                 "");
-            if (configEntry.Value.Length > 150000)
+            // Check https://github.com/Aavild/NewTerminal/issues/1#issuecomment-1841450262
+            int sum = configEntry.Value.Split('\n').Sum(s => (s.Length - 1) / 51 * 51 + 51); // using of newline is equivalent of rounding the characters for that line up to 51.
+            if (sum > 4794)
             {
-                Plugin.Log.LogError($"{name} has a length beyond 150.000 and will be skipped");
+                Plugin.Log.LogError($"{name} has a length beyond 4.794 and will be skipped");
                 return;
             }
             displayText = configEntry.Value;
