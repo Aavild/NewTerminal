@@ -1,4 +1,9 @@
-﻿## v1.1.1
+﻿## v1.2.0
+
+* Made so that NewTerminals can't crash the Terminal (I think)
+* Set the upper limit to 4794 characters
+
+## v1.1.1
 
 * Restructured project with following new structure:
   * src - code project

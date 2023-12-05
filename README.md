@@ -52,6 +52,10 @@ Each line is exactly 51 letters long.
 
 In Notepad++ you can collapse categories to make navigation easier.
 
+BepInEx.cfg's `[Logging.Console] Enabled = true` makes a console run in the background which displays a log, with errors and other log messages.
+
+After closing LethalCompany, LethalCompany/BepInEx/LogOutput.txt contains a more concise log of errors/log messages with any plugins.
+
 if you have other useful tips for other players feel free to create a Github issue on it.
 
 ## Dev
