@@ -1,4 +1,11 @@
-﻿## v1.3.0
+﻿## v1.4.0
+* tested for LethalCompany v45
+  * Running the plugin even on older versions will produce the new commands which include Transmit (SendSignalTranslator), buy/info SignalTranslator and the "Other" command contains the following: "TRANSMIT \[message\]\\nTo transmit a message with the signal translator"
+* Added TerminalMenus.Unused-cmd - if anyone can figure out how to call these commands let me know
+* Added TerminalMenus.accessTerminalObjects-cmd in Other
+* Fixed github link
+
+## v1.3.0
 * SomeCommand-cmd for all commands which allows renaming commands
 * Added Creative Commons which permits anyone to copy everything in the mod and redistribute without including the license
 

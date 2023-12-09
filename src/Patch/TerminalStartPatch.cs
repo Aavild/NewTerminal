@@ -16,6 +16,7 @@ public class TerminalStartPatch
         var specialConfigFile = CreateNewConfig("NewTerminal-Special");
         var verbsConfigFile = CreateNewConfig("NewTerminal-Verbs");
         var otherConfigFile = CreateNewConfig("NewTerminal-Other");
+        var unusedConfigFile = CreateNewConfig("NewTerminal-Unused");
         
         // __instance.terminalNodes.specialNodes
         foreach (TerminalNode node in __instance.terminalNodes.specialNodes)
@@ -43,18 +44,19 @@ public class TerminalStartPatch
                 ConfigTerminalMenuCmd(verbsConfigFile, $"TerminalMenus.{keyword.defaultVerb.name}-cmd", keyword, 2);
                 continue;
             }
-            if (keyword.accessTerminalObjects)
+            if (keyword.accessTerminalObjects) {
+                ConfigTerminalMenuCmd(otherConfigFile, "TerminalMenus.accessTerminalObjects-cmd", keyword, 2);
                 continue;
+            }
             if (keyword.specialKeywordResult == null)
             {
-                Plugin.Log.LogWarning($"Skipping {keyword.name}");
-                // Plugin.Log.LogInfo(ObjectDumper.Dump(keyword));
+                Plugin.Log.LogWarning($"Unused: {keyword.name}");
+                ConfigTerminalMenuCmd(unusedConfigFile, "TerminalMenus.Unused-cmd", keyword, 2);
                 continue;
             }
             
             ConfigTerminalMenuText(otherConfigFile, "TerminalMenus.Other", keyword.name, ref keyword.specialKeywordResult.displayText);
             ConfigTerminalMenuCmd(otherConfigFile, "TerminalMenus.Other", keyword, 2);
-            
         }
         
         // __instance.terminalNodes.terminalNodes is empty
